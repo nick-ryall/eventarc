@@ -43,13 +43,18 @@ Note: These should be named exactly as seen here as the extension looks for fiel
 
 #### OPTIONAL (These fields can be omitted and the syncing will still work as expected)
 
+* **e_timezone** (textfield)(optional) : e.g. 'Australia/Melbourne'  - Defaults to your users timezone
+* **e_presentedby** (textfield)(optional): Who is the event presented by?
 * **e_description** (textfield)(optional): A description of the event.
+* **e_subdomain** (textfield)(optional): The subdomain for the event (ie. put "yourname" for "yourname.eventarc.com")
 * **a_add1** (textfield)(optional) : Address line 1 for the event location.
 * **a_add2** (textfield)(optional) : Address line 2 for the event location.
 * **a_city** (textfield || select)(optional) : City  for the event location.
 * **a_state** (textfield || select)(optional) : State for the event location.
 * **a_post** (textfield || select)(optional) : Postcode for the event location.
 * **a_country** (textfield || select)(optional) : Country for the event location.
+
+See an up to date list here: http://api.eventarc.com/docs/eventarceventcreate.html
 
 ## Current Features
 
