@@ -235,8 +235,8 @@
 		
 		public function Delete (Array &$context) {
 		
-			TODO: Waiting on API support for deleting Events. Return false for now.
-			return false;
+			//TODO: Waiting on API support for deleting Events. Return false for now.
+			//return false;
 			
 			$callback = ($context['parent']->getPageCallback());
 			$section_handle = $callback['context']['section_handle'];

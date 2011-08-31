@@ -55,11 +55,11 @@ Note: These should be named exactly as seen here as the extension looks for fiel
 
 * Events created from within Symphony are re-created on Eventarc.
 * Updates made to an event through the Eventarc interface are pushed to Symphony.
+* Deleting Eventarc entries from within Symphony.
 
 ## Future Features
 
 * Editing Eventarc entries from within Symphony.
-* Deleting Eventarc entries from within Symphony.
 
 These features are expected to be available in the next update to the Eventarc API at which time they will be added to this extension.
 
