@@ -20,7 +20,7 @@ Syncs one more Symphony sections with the Eventarc event management interface - 
 
 1. Enter your Eventarc username and password on Symphony preferences page.
 
-2. Create a page called 'Eventarc Updater' and attach the the 'Eventarc Updater' event which comes bundled with the extension.
+2. Create a page called 'Eventarc Updater' and attach the 'Eventarc Updater' event which comes bundled with the extension.
 
 3. Create a section for your events. There are a number of fields that are essential for the syncing to work correctly. These are listed below.
 
