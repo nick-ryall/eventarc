@@ -32,18 +32,18 @@ Note: These should be named exactly as seen here as the extension looks for fiel
 
 #### REQUIRED (All these fields need to be created. Some are simply placeholders for the returned Eventarc data)
 
-* **e_Name** (textfield)(required) : The name/title of the Event
-* **e_Start** (date)(required) : The start data/time for the event.
-* **e_Stop** (date)(required) : The stop date/time for the event.
-* **e_Deadline** (date)(required) : The ticket deadline for the event.
-* **e_Status** (checkbox) : Toggles the event as "Active" or "Draft" in Eventarc.
+* **e_name** (textfield)(required) : The name/title of the Event
+* **e_start** (date)(required) : The start data/time for the event.
+* **e_stop** (date)(required) : The stop date/time for the event.
+* **e_deadline** (date)(required) : The ticket deadline for the event.
+* **e_status** (checkbox) : Toggles the event as "Active" or "Draft" in Eventarc.
 * **g_id** (textfield)(optional) : A placeholder for the user's Eventarc groups.
 * **e_id** (textfield)(optional) : A placeholder for the generated Eventarc ID.
 * **e_url** (textfield)(optional) : A placeholder for the generated Eventrac URL.
 
 #### OPTIONAL (These fields can be omitted and the syncing will still work as expected)
 
-* **e_Description** (textfield)(optional): A description of the event.
+* **e_description** (textfield)(optional): A description of the event.
 * **a_add1** (textfield)(optional) : Address line 1 for the event location.
 * **a_add2** (textfield)(optional) : Address line 2 for the event location.
 * **a_city** (textfield || select)(optional) : City  for the event location.
