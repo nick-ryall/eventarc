@@ -24,9 +24,13 @@ Syncs one more Symphony sections with the Eventarc event management interface - 
 
 3. Create a section for your events. There are a number of fields that are essential for the syncing to work correctly. These are listed below.
 
+4. Make sure the "Sync this section with Eventarc?" checkbox is selected before saving your section.
+
+### Fields 
+
 Note: These should be named exactly as seen here as the extension looks for fields with predefined prefixes.
 
-#REQUIRED (All these fields need to be created. Some are simply placeholders for the returned Eventarc data)
+#### REQUIRED (All these fields need to be created. Some are simply placeholders for the returned Eventarc data)
 
 * **e_Name** (textfield)(required) : The name/title of the Event
 * **e_Start** (date)(required) : The start data/time for the event.
@@ -37,7 +41,7 @@ Note: These should be named exactly as seen here as the extension looks for fiel
 * **e_id** (textfield)(optional) : A placeholder for the generated Eventarc ID.
 * **e_url** (textfield)(optional) : A placeholder for the generated Eventrac URL.
 
-#OPTIONAL (These fields can be omitted and the syncing will still work as expected.)
+#### OPTIONAL (These fields can be omitted and the syncing will still work as expected.)
 
 * **e_Description** (textfield)(optional): A description of the event.
 * **a_add1** (textfield)(optional) : Address line 1 for the event location.
@@ -46,8 +50,6 @@ Note: These should be named exactly as seen here as the extension looks for fiel
 * **a_state** (textfield || select)(optional) : State for the event location.
 * **a_post** (textfield || select)(optional) : Postcode for the event location.
 * **a_country** (textfield || select)(optional) : Country for the event location.
-
-4. Make sure the "Sync this section with Eventarc?" is selected before saving your section.
 
 ## Current Features
 
