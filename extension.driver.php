@@ -64,8 +64,8 @@
 				),
 				array(
 					'page' => '/publish/new/',
-					'delegate' => 'EntryPreCreate',
-					'callback' => 'EntryPreEdit'
+					'delegate' => 'EntryPostCreate',
+					'callback' => 'EntryPostEdit'
 				),
 				array(
 					'page' => '/publish/',
@@ -74,8 +74,8 @@
 				),
 				array(
 					'page' => '/publish/edit/',
-					'delegate' => 'EntryPreEdit',
-					'callback' => 'EntryPreEdit'
+					'delegate' => 'EntryPostEdit',
+					'callback' => 'EntryPostEdit'
 				),
 				array(
 					'page'		=> '/system/preferences/',
@@ -227,7 +227,7 @@
 			$context['form']->appendChild($fieldset);
 		}
 		
-		public function EntryPreEdit(Array &$context) {
+		public function EntryPostEdit(Array &$context) {
 			$section_settings = $context['section']->get();
 			$sync = $section_settings['eventarc'];
 
@@ -389,7 +389,7 @@
 					$a_data[str_replace('a-', 'a_', $key)] = $value;
 				} 
 			}
-			
+
 			//If the ID & URL are not set - Create a new event.
 			if($e_data['e_id'] == '' && $e_data['e_url'] == '') {
 			
