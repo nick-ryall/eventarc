@@ -13,7 +13,7 @@ Syncs one more Symphony sections with the Eventarc event management interface - 
  
 1. Upload the 'eventarc' folder in this archive to your Symphony 'extensions' folder
 2. Enable it by selecting "Eventarc" in the list, choose Enable from the with-selected menu, then click Apply
-3. When creating or editing a section you can add the "Publish Tab" field
+3. Follow the usage instructions religiously.
 
 
 ## Usage
