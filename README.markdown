@@ -43,7 +43,7 @@ Note: These should be named exactly as seen here as the extension looks for fiel
 
 #### OPTIONAL (These fields can be omitted and the syncing will still work as expected)
 
-* **e_timezone** (textfield)(optional) : e.g. 'Australia/Melbourne'  - Defaults to your users timezone
+* **e_timezone** (textfield)(optional) : e.g. 'Australia/Melbourne'  - Defaults to your accounts timezone settings
 * **e_presentedby** (textfield)(optional): Who is the event presented by?
 * **e_description** (textfield)(optional): A description of the event.
 * **e_subdomain** (textfield)(optional): The subdomain for the event (ie. put "yourname" for "yourname.eventarc.com")
