@@ -21,6 +21,11 @@
 		public static $sectionManager = null;
 		
 		/**
+		 * @var entryManager
+		 */
+		public static $entryManager = null;
+		
+		/**
 		 * @var FieldManager
 		 */
 		public static $fieldManager = null;
@@ -235,9 +240,9 @@
 		
 		public function Delete (Array &$context) {
 		
-			//TODO: Waiting on API support for deleting Events. Return false for now.
-			//return false;
-			
+			return;
+		
+			//Need to find the section and make sure it is supposed to Sync with Eventarc.	
 			$callback = ($context['parent']->getPageCallback());
 			$section_handle = $callback['context']['section_handle'];
 			
@@ -249,6 +254,7 @@
 			$section_settings = $section->get();
 			$sync = $section_settings['eventarc'];
 			
+			//If the section is synced - call the API.
 			if($sync == 'yes') {
 				$entry_id = $context['entry_id'][0];
 							
@@ -349,8 +355,9 @@
 		public function sendEvent($context) {
 		
 			//Store some information on the Symphony Entry.
-			$entry = $context['entry']->get();
-			$entry_id = $entry['id'];	
+			$entry = $context['entry'];
+			$entry_settings = $entry->get();
+			$entry_id = $entry_settings['id'];	
 	
 			$e_data = array();
 			foreach($context['fields'] as $key => $value) {
@@ -426,7 +433,7 @@
 				 	), "tbl_entries_data_{$field_id}", "
 				 		`entry_id` = '{$entry_id}'
 				 	");
-				 				 
+			 
 				 }
 				 
 			} 
