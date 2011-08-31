@@ -61,6 +61,6 @@ Note: These should be named exactly as seen here as the extension looks for fiel
 
 * Editing Eventarc entries from within Symphony.
 
-This features are expected to be available in the next update to the Eventarc API at which time they will be added to this extension.
+This feature is expected to be available in the next update to the Eventarc API at which time it will be added to this extension.
 
 ## Changelog
