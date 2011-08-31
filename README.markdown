@@ -41,7 +41,7 @@ Note: These should be named exactly as seen here as the extension looks for fiel
 * **e_id** (textfield)(optional) : A placeholder for the generated Eventarc ID.
 * **e_url** (textfield)(optional) : A placeholder for the generated Eventrac URL.
 
-#### OPTIONAL (These fields can be omitted and the syncing will still work as expected.)
+#### OPTIONAL (These fields can be omitted and the syncing will still work as expected)
 
 * **e_Description** (textfield)(optional): A description of the event.
 * **a_add1** (textfield)(optional) : Address line 1 for the event location.
