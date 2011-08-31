@@ -269,21 +269,8 @@
 					$e_id = $e_id['value'];
 				}
 				
-				//Retrieve the Eventarc Group ID (g_id);
-				$field_id = self::$fieldManager->fetchFieldIDFromElementName('g-id');
-				if(isset($field_id)) {
-					$g_id = Symphony::Database()->fetchRow(0, sprintf("
-							SELECT `value`
-							FROM sym_entries_data_%d
-							WHERE `entry_id` = '%s'
-						",
-						$field_id, $entry_id
-					));
-					$g_id = $g_id['value'];
-				}
-				
 				if($this->login()) {
-					$this->deleteEvent($e_id, $g_id);
+					$this->deleteEvent($e_id);
 				}
 			}			
 		}
@@ -353,9 +340,9 @@
 		}
 		
 		//Delete an entry on Eventarc
-		public function deleteEvent($e_id, $g_id) {
+		public function deleteEvent($e_id) {
 			$result = $this->eventarc
-			 ->delete_event($e_id, $g_id);
+			 ->delete_event($e_id);
 		}
 		
 		//Send an entry to Eventarc

@@ -407,11 +407,10 @@ class Eventarc
 	 * @link http://api.eventarc.com/docs/eventarceventdelete.html
 	 * @return Eventarc Returns this class so you can chain, chain, chain.
 	 */
-	public function delete_event($e_id, $g_id)
+	public function delete_event($e_id)
 	{
 		return $this->call('eventarc.event.delete', array(
-			'e_id' => $e_id,
-			'g_id' => $g_id
+			'e_id' => $e_id
 			)
 		);
 	}
