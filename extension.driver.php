@@ -64,8 +64,8 @@
 				),
 				array(
 					'page' => '/publish/new/',
-					'delegate' => 'EntryPostCreate',
-					'callback' => 'EntryPostEdit'
+					'delegate' => 'EntryPreCreate',
+					'callback' => 'EntryPreEdit'
 				),
 				array(
 					'page' => '/publish/',
@@ -74,8 +74,8 @@
 				),
 				array(
 					'page' => '/publish/edit/',
-					'delegate' => 'EntryPostEdit',
-					'callback' => 'EntryPostEdit'
+					'delegate' => 'EntryPreEdit',
+					'callback' => 'EntryPreEdit'
 				),
 				array(
 					'page'		=> '/system/preferences/',
@@ -227,7 +227,7 @@
 			$context['form']->appendChild($fieldset);
 		}
 		
-		public function EntryPostEdit(Array &$context) {
+		public function EntryPreEdit(Array &$context) {
 			$section_settings = $context['section']->get();
 			$sync = $section_settings['eventarc'];
 
