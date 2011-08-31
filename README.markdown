@@ -39,7 +39,7 @@ Note: These should be named exactly as seen here as the extension looks for fiel
 * **e_status** (checkbox) : Toggles the event as "Active" or "Draft" in Eventarc.
 * **g_id** (textfield)(optional) : A placeholder for the user's Eventarc groups.
 * **e_id** (textfield)(optional) : A placeholder for the generated Eventarc ID.
-* **e_url** (textfield)(optional) : A placeholder for the generated Eventrac URL.
+* **e_url** (textfield)(optional) : A placeholder for the generated Eventarc URL.
 
 #### OPTIONAL (These fields can be omitted and the syncing will still work as expected)
 
