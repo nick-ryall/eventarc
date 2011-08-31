@@ -239,9 +239,7 @@
 		}
 		
 		public function Delete (Array &$context) {
-		
-			return;
-		
+
 			//Need to find the section and make sure it is supposed to Sync with Eventarc.	
 			$callback = ($context['parent']->getPageCallback());
 			$section_handle = $callback['context']['section_handle'];
