@@ -1,6 +1,7 @@
 <?php
 	
 	require_once(CORE . '/class.cacheable.php');
+	require_once(TOOLKIT . '/class.entrymanager.php');
 	require_once(TOOLKIT . '/class.sectionmanager.php');
 	require_once(TOOLKIT . '/class.fieldmanager.php');
 	require_once(TOOLKIT . '/class.htmlpage.php');
@@ -416,21 +417,28 @@
 				 		self::$fieldManager = new fieldManager(Symphony::Engine());
 				 	}
 				 	
-				 	//Save the returned Eventarc ID (e_id).
 				 	$field_id = self::$fieldManager->fetchFieldIDFromElementName('e-id');
-				 	Symphony::Database()->update(array(
-				 		'value'				=> $result['e_id'],
-				 	), "tbl_entries_data_{$field_id}", "
-				 		`entry_id` = '{$entry_id}'
-				 	");
+				 	$entry->setData($field_id, array(
+				 		'handle' => $result['e_id'],
+				 		'value' => $result['e_id'],
+				 		'value_formatted' => $result['e_id'],
+				 		'word_count' => 0
+				 	));
 				 	
 				 	//Save the returned Eventarc URL (e_url).
 				 	$field_id = self::$fieldManager->fetchFieldIDFromElementName('e-url');
-				 	Symphony::Database()->update(array(
-				 		'value'				=> $result['url'],
-				 	), "tbl_entries_data_{$field_id}", "
-				 		`entry_id` = '{$entry_id}'
-				 	");
+				 	$entry->setData($field_id, array(
+				 		'handle' => $result['url'],
+				 		'value' => $result['url'],
+				 		'value_formatted' => $result['url'],
+				 		'word_count' => 0
+				 	));
+				 	
+				 	if(!isset(self::$entryManager)) {
+				 		self::$entryManager = new entryManager(Symphony::Engine());
+				 	}
+				 	
+				 	self::$entryManager->edit($entry);
 			 
 				 }
 				 
@@ -446,11 +454,18 @@
 				
 				//Save the returned Eventarc URL (e_url).
 				$field_id = self::$fieldManager->fetchFieldIDFromElementName('e-url');
-				Symphony::Database()->update(array(
-					'value'				=> $event['e_url'],
-				), "tbl_entries_data_{$field_id}", "
-					`entry_id` = '{$entry_id}'
-				");
+				$entry->setData($field_id, array(
+					'handle' => $result['url'],
+					'value' => $result['url'],
+					'value_formatted' => $result['url'],
+					'word_count' => 0
+				));
+				
+				if(!isset(self::$entryManager)) {
+					self::$entryManager = new entryManager(Symphony::Engine());
+				}
+				
+				self::$entryManager->edit($entry);
 				
 			}
 			else {

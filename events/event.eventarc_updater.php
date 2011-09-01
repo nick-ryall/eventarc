@@ -1,6 +1,7 @@
 <?php
 
 	require_once(TOOLKIT . '/class.event.php');
+	require_once(TOOLKIT . '/class.entrymanager.php');
 	require_once(TOOLKIT . '/class.fieldmanager.php');
 	require_once(EXTENSIONS . '/eventarc/lib/class.eventarc.php');
 
@@ -11,9 +12,15 @@
 		private static $config_handle = 'eventarc-settings';
 		
 		/**
+		 * @var EntryManager
+		 */
+		public static $entryManager = null;
+		
+		/**
 		 * @var FieldManager
 		 */
 		public static $fieldManager = null;
+		
 
 		public $eParamFILTERS = array(
 		);
@@ -52,6 +59,18 @@
 			//Check the hash and the ID match
 			if($_GET["hash"] == sha1($_GET["id"])) {
 			
+				
+				//Get the entry objectt from the ID.
+				if(!isset(self::$entryManager)) {
+					self::$entryManager = new entryManager(Symphony::Engine());
+				}
+				$entry_id = $_GET["id"];
+				$section_id = self::$entryManager->fetchEntrySectionID($entry_id);
+				
+				$entry = self::$entryManager->fetch($entry_id, $section_id);
+				$entry = $entry[0];
+				
+
 				//Retreive the Pushed JSON from the Eventarc API.
 				$data = json_decode(
 					utf8_encode(file_get_contents("php://input")), 
@@ -59,7 +78,7 @@
 				);
 				
 				//Eventarc entry id.
-				$e_id = $data['e_id'];
+				$data['e_id'];
 				
 				//Login to eventarc & return the API key.
 				$eventarc = new Eventarc;
@@ -92,9 +111,7 @@
 						$fields[str_replace('a_', 'a-', $key)] = strip_tags($value);
 					} 
 				}
-				//Now save the fields into Symphony
-				$entry_id = $_GET["id"];
-				
+	
 				if(!isset(self::$fieldManager)) {
 					self::$fieldManager = new fieldManager(Symphony::Engine());
 				}
@@ -102,13 +119,13 @@
 				foreach($fields as $key => $value) {
 					$field_id = self::$fieldManager->fetchFieldIDFromElementName($key);
 					if(isset($field_id)) {
-						Symphony::Database()->update(array(
-							'value'				=> $value,
-						), "tbl_entries_data_{$field_id}", "
-							`entry_id` = '{$entry_id}'
-						");
+						$entry->setData($field_id, array(
+							'value' => $value,
+						));
 					}
 				}
+				
+				self::$entryManager->edit($entry);
 				
 				return true;
 			
