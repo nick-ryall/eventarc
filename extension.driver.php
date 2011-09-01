@@ -1,7 +1,6 @@
 <?php
 	
 	require_once(CORE . '/class.cacheable.php');
-	require_once(TOOLKIT . '/class.entrymanager.php');
 	require_once(TOOLKIT . '/class.sectionmanager.php');
 	require_once(TOOLKIT . '/class.fieldmanager.php');
 	require_once(TOOLKIT . '/class.htmlpage.php');
@@ -20,11 +19,6 @@
 		 * @var sectionManager
 		 */
 		public static $sectionManager = null;
-		
-		/**
-		 * @var entryManager
-		 */
-		public static $entryManager = null;
 		
 		/**
 		 * @var FieldManager
@@ -434,11 +428,7 @@
 				 		'word_count' => 0
 				 	));
 				 	
-				 	if(!isset(self::$entryManager)) {
-				 		self::$entryManager = new entryManager(Symphony::Engine());
-				 	}
-				 	
-				 	self::$entryManager->edit($entry);
+				 	$entry->commit();
 			 
 				 }
 				 
@@ -461,11 +451,7 @@
 					'word_count' => 0
 				));
 				
-				if(!isset(self::$entryManager)) {
-					self::$entryManager = new entryManager(Symphony::Engine());
-				}
-				
-				self::$entryManager->edit($entry);
+				$entry->commit();
 				
 			}
 			else {

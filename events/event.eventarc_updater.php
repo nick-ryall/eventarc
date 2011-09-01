@@ -60,7 +60,7 @@
 			if($_GET["hash"] == sha1($_GET["id"])) {
 			
 				
-				//Get the entry objectt from the ID.
+				//Get the entry object from the ID.
 				if(!isset(self::$entryManager)) {
 					self::$entryManager = new entryManager(Symphony::Engine());
 				}
@@ -125,7 +125,7 @@
 					}
 				}
 				
-				self::$entryManager->edit($entry);
+				$entry->commit();
 				
 				return true;
 			
