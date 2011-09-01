@@ -376,6 +376,7 @@
 			
 			//Create a unique Push URL (e_pushurl) from the entry ID.
 			$e_data['e_pushurl'] = URL .'/eventarc-updater/?hash='.sha1($entry_id).'&id='.$entry_id;
+		
 			
 			//Address Data
 			$a_data = array();

@@ -78,7 +78,7 @@
 				);
 				
 				//Eventarc entry id.
-				$data['e_id'];
+				$e_id = $data['e_id'];
 				
 				//Login to eventarc & return the API key.
 				$eventarc = new Eventarc;
@@ -102,7 +102,7 @@
 				if($fields['e-status'] == 'active') {
 					$fields['e-status'] = 'yes';
 				} else {
-					$e_data['e-status'] = 'no';
+					$fields['e-status'] = 'no';
 				}
 				//Now look for address details
 				$address = $eventarc->event_get_address($e_id);
@@ -111,7 +111,7 @@
 						$fields[str_replace('a_', 'a-', $key)] = strip_tags($value);
 					} 
 				}
-	
+					
 				if(!isset(self::$fieldManager)) {
 					self::$fieldManager = new fieldManager(Symphony::Engine());
 				}
