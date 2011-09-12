@@ -142,9 +142,9 @@
 				)
 			);
 
-			/*$fieldset->appendChild(
-				new XMLElement('p', 'You can find these details from <a href="http://dev.twitter.com">dev.twitter.com</a>', array('class' => 'help'))
-			);*/
+			$fieldset->appendChild(
+				new XMLElement('p', 'Don\'t have an account? You can sign up for a free Eventarc account <a target="_blank" href="http://eventarc.com/">here.</a>', array('class' => 'help'))
+			);
 
 			$wrapper->appendChild($fieldset);
 		}
@@ -216,7 +216,7 @@
 			$fieldset->appendChild($label);	
 			
 			$fieldset->appendChild(
-				new XMLElement('p', 'Some help text to be decided. Also - Perhaps detect if the username and password are set in preferences.', array('class' => 'help'))
+				new XMLElement('p', 'Note: Your section will require <a target="_blank" href="https://github.com/nick-ryall/Eventarc/blob/master/README.markdown">some specific fields</a> for syncing to work correctly.', array('class' => 'help'))
 			);
 
 			$context['form']->appendChild($fieldset);
