@@ -726,8 +726,6 @@ class Eventarc
 				123);
 		}
 
-		curl_close($ch);
-
 		// Process the response
 		return $this->process_response($response);
 	}
@@ -743,7 +741,6 @@ class Eventarc
 	{
 		// The response should be valid JSON
 		$decoded = json_decode($response, TRUE);
-
 		// Check for JSON errors
 		switch (json_last_error())
 		{

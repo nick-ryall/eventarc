@@ -184,7 +184,7 @@
 			
 			if($driver == "publish") {
 			
-				//TODO: Need to set the API ket and username as JS variables. Hard Coded for now.
+				//Write the API ket and username as JS variables in the document header.
 				if($this->login()) {
 					$page->addElementToHead(new XMLElement(
 						'script',
@@ -285,7 +285,7 @@
 			
 			//HAsh for the User ID
 			$cache_u_id = md5($this->get('eventarc-username'));
-			
+		
 			$cache = new Cacheable(Symphony::Database());
 			
 			//Check for a cached API Key
@@ -349,6 +349,7 @@
 		
 			//Store some information on the Symphony Entry.
 			$entry = $context['entry'];
+			
 			$entry_settings = $entry->get();
 			$entry_id = $entry_settings['id'];	
 	
@@ -364,7 +365,7 @@
 			if($e_data['e_status'] == 'yes') {
 				$e_data['e_status'] = 'active';
 			} else {
-				$e_data['e_status'] = 'draft';
+				$e_data['e_status'] = 'pending';
 			}	
 			//Set the format of the Date/Times
 			$e_data['e_start'] = date('Y-m-d G:i:s', strtotime($e_data['e_start']));
@@ -377,7 +378,6 @@
 			//Create a unique Push URL (e_pushurl) from the entry ID.
 			$e_data['e_pushurl'] = URL .'/eventarc-updater/?hash='.sha1($entry_id).'&id='.$entry_id;
 		
-			
 			//Address Data
 			$a_data = array();
 			foreach($context['fields'] as $key => $value) {
@@ -385,7 +385,7 @@
 					$a_data[str_replace('a-', 'a_', $key)] = $value;
 				} 
 			}
-
+			
 			//If the ID & URL are not set - Create a new event.
 			if($e_data['e_id'] == '' && $e_data['e_url'] == '') {
 			
@@ -437,6 +437,7 @@
 			//TODO: REMOVE THIS ONCE WE CAN DO event.update method Below.
 			//If the ID is set but the URL is not - Retrieve the eventarc URL. 
 			else if($e_data['e_id'] != '' && $e_data['e_url'] == '') {
+			
 				$event = $this->eventarc->event_get($e_data['e_id']);
 				
 				if(!isset(self::$fieldManager)) {

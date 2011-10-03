@@ -25,17 +25,20 @@
 		  	var $g = $('input[name=\'fields[g-id]\']');
 		  	var g_id = $g.val();
 			$sel = $('<select id="group_id"><select>');
+			$g_data = [];
 	  	    for (var i=0; i<data.length; i++) {
 	  	      if(data[i].g_id == g_id) {
 	  	      	$sel.append('<option selected value="' + data[i].g_id + '">' + data[i].g_name + '</option>');
 	  	      } else {
 	  	      	$sel.append('<option value="' + data[i].g_id + '">' + data[i].g_name + '</option>');
 	  	      }
+	  	      $g_data.push(data[i].g_id);
 	  	    } 
-	  	    if($g.val() == "") {
+	  	    if($g.val() == "" || $.inArray($g.val(), $g_data) == -1) {
 	  	    	$g.val($sel.val());
 	  	    }
-	  	    $sel.insertAfter($g).live('change', function() {
+	  	    $sel.insertAfter($g);
+	  	    $sel.change(function() {
 	  	    	$g.val($(this).val());
 	  	    });
 	  	    $g.hide();
