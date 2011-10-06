@@ -758,7 +758,7 @@ class Eventarc
 		// The response should be valid JSON
 		$decoded = json_decode($response, TRUE);
 		// Check for JSON errors
-		/*switch (json_last_error())
+		switch (json_last_error())
 		{
 			case JSON_ERROR_NONE:
 				// The JSON is valid
@@ -787,7 +787,7 @@ class Eventarc
 				throw new Eventarcapi_Exception(
 					'Unknown JSON error', 400);
 				break;
-		}*/
+		}
 
 		// If we are recording the history, then... record it
 		if ($this->keep_history)
@@ -797,7 +797,7 @@ class Eventarc
 		}
 
 		// Check to see if the request was successful
-		/*if (array_key_exists('error', $this->response))
+		if (array_key_exists('error', $this->response))
 		{
 			// Store the error
 			$this->error = $this->response['error'];
