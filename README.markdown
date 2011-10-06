@@ -59,11 +59,10 @@ See an up to date list here: http://api.eventarc.com/docs/eventarceventcreate.ht
 ## Current Features
 
 * Events created from within Symphony are re-created on Eventarc.
-* Editing Eventarc entries from within Symphony.
-* Deleting Eventarc entries from within Symphony.
+* Events edited from within Symphony are updated on Eventarc.
+* Events deleted from within Symphony are deleted on Eventarc.
 
 * Updates made to an event through the Eventarc interface are pushed to Symphony.
-
 
 
 ## Changelog
