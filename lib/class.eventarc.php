@@ -193,6 +193,21 @@ class Eventarc
 	{
 		return $this->call('eventarc.event.create', $params);
 	}
+	
+	
+	/**
+	 * Edit the event that you have built. See docs for this one. 
+	 * 
+	 * @param mixed $params 
+	 * @access public
+	 * @link http://api.eventarc.com/docs/eventarceventedit.html
+	 * @return array The result array
+	 */
+	public function event_update($params=FALSE)
+	{
+		return $this->call('eventarc.event.update', $params);
+	}
+	
 
 	/**
 	 * Copies an events STUFF to a new event
@@ -676,6 +691,7 @@ class Eventarc
 			'id' => time(),
 			'params' => $this->params
 		);
+		
 	
 		// Convert payload to JSON
 		if (($json_payload = json_encode($payload)) === NULL)
@@ -785,8 +801,7 @@ class Eventarc
 		{
 			// Store the error
 			$this->error = $this->response['error'];
-			
-			var_dump($this->error);
+		
 		
 			// There was an error, throw an exception
 			throw new Eventarcapi_Exception(
