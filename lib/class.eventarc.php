@@ -797,7 +797,7 @@ class Eventarc
 		}
 
 		// Check to see if the request was successful
-		if (array_key_exists('error', $this->response))
+		/*if (array_key_exists('error', $this->response))
 		{
 			// Store the error
 			$this->error = $this->response['error'];
@@ -810,7 +810,7 @@ class Eventarc
 		}
 	
 		// We should now have a result object with the results within
-		/*if ( ! array_key_exists('result', $this->response))
+		if ( ! array_key_exists('result', $this->response))
 		{
 			// The JSON is not valid as there either has to be a error object or
 			//  a result object
