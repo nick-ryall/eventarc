@@ -795,13 +795,13 @@ class Eventarc
 		}
 	
 		// We should now have a result object with the results within
-		if ( ! array_key_exists('result', $this->response))
+		/*if ( ! array_key_exists('result', $this->response))
 		{
 			// The JSON is not valid as there either has to be a error object or
 			//  a result object
 			throw new Eventarcapi_Exception(
 				'The response was not valid JSON-RPC.', 123);
-		}
+		}*/
 
 		// Return the result
 		return $this->response['result'];
