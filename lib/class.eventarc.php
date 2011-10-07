@@ -816,7 +816,7 @@ class Eventarc
 			//  a result object
 			throw new Eventarcapi_Exception(
 				'The response was not valid JSON-RPC.', 123);
-		}*/
+		}
 
 		// Return the result
 		return $this->response['result'];
