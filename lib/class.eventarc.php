@@ -208,6 +208,20 @@ class Eventarc
 		return $this->call('eventarc.event.update', $params);
 	}
 	
+	
+	/**
+	 * Edit the event that you have built. See docs for this one. 
+	 * 
+	 * @param mixed $params 
+	 * @access public
+	 * @link http://api.eventarc.com/docs/eventarceventedit.html
+	 * @return array The result array
+	 */
+	public function address_update($params=FALSE)
+	{
+		return $this->call('eventarc.address.update', $params);
+	}
+	
 
 	/**
 	 * Copies an events STUFF to a new event
