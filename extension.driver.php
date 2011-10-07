@@ -486,6 +486,8 @@
 						'word_count' => 0
 					));
 					
+					//Store the retrieved address ID.
+					$a_data['a_id'] = $result['a_id'];
 					$entry->commit();
 				}
 				
